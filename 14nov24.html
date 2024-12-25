@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зернышки на шахматном поле</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+        
+        }
+    </style>
+</head>
+<body>
+
+<h1>Количество зернышек на шахматном поле</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Поле</th>
+            <th>Количество зернышек</th>
+        </tr>
+    </thead>
+    <tbody id="chessboard"></tbody>
+</table>
+
+<script>
+    const chessboard = document.getElementById('chessboard');
+    let grains = 2; 
+
+    for (let i = 1; i <= 64; i++) {
+        const row = document.createElement('tr');
+        const cellField = document.createElement('td');
+        const cellGrains = document.createElement('td');
+
+        cellField.textContent = `Поле ${i}`;
+        cellGrains.textContent = grains;
+
+        row.appendChild(cellField);
+        row.appendChild(cellGrains);
+        chessboard.appendChild(row);
+
+        grains *= 2; 
+    }
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертация единиц</title>
+</head>
+<body>
+    <h1>Конвертация единиц измерения</h1>
+    
+    <div id="results"></div>
+
+    <script>
+        
+        function convertCentsToRoublesAndCents(cents) {
+            const roubles = Math.floor(cents / 100);
+            const remainingCents = cents % 100;
+            return `${roubles} рублей и ${remainingCents} копеек`;
+        }
+
+        
+        function convertGramsToKilogramsAndGrams(grams) {
+            const kilograms = Math.floor(grams / 1000);
+            const remainingGrams = grams % 1000;
+            return `${kilograms} килограммов и ${remainingGrams} граммов`;
+        }
+
+      
+        function convertSecondsToHoursMinutesAndSeconds(totalSeconds) {
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+            return `${hours} часов, ${minutes} минут и ${seconds} секунд`;
+        }
+
+        
+        function convertRoublesAndCentsToCents(roubles, cents) {
+            return (roubles * 100) + cents;
+        }
+
+        function convertTonsKgGramsToGrams(tons, kilograms, grams) {
+            return (tons * 1000000) + (kilograms * 1000) + grams;
+        }
+
+       
+        function convertDaysHoursMinutesSecondsToSeconds(days, hours, minutes, seconds) {
+            return (days * 86400) + (hours * 3600) + (minutes * 60) + seconds;
+        }
+
+    
+        const results = `
+            <p>123435 копеек = ${convertCentsToRoublesAndCents(123435)}</p>
+            <p>8765452 грамма = ${convertGramsToKilogramsAndGrams(8765452)}</p>
+            <p>503826 секунд = ${convertSecondsToHoursMinutesAndSeconds(503826)}</p>
+            <p>12 рублей 78 копеек = ${convertRoublesAndCentsToCents(12, 78)} копеек</p>
+            <p>7 тонн 34 килограмма 15 грамм = ${convertTonsKgGramsToGrams(7, 34, 15)} граммов</p>
+            <p>15 суток 7 часов 34 минуты 5 секунд = ${convertDaysHoursMinutesSecondsToSeconds(15, 7, 34, 5)} секунд</p>
+        `;
+
+        document.getElementById('results').innerHTML = results;
+    </script>
+</body>
+</html>

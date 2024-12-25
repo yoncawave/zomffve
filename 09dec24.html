@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка движения ладьи</title>
+    <script>
+        function canRookMove() {
+           
+            let c1 = 3; // текущая колонка
+            let r1 = 3; // текущая строка
+
+            
+            let c2 = 7; // новая колонка
+            let r2 = 1; // новая строка
+
+            
+            if (c1 === c2 || r1 === r2) {
+                document.getElementById("result").innerText = "Ладья может перейти в клетку (" + c2 + ", " + r2 + ").";
+            } else {
+                document.getElementById("result").innerText = "Ладья не может перейти в клетку (" + c2 + ", " + r2 + ").";
+            }
+        }
+    </script>
+</head>
+<body onload="canRookMove()">
+    <h1>Проверка движения ладьи</h1>
+    <div id="result"></div>
+</body>
+</html>

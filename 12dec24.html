@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генерация новогодней елочки</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+        }
+        .tree {
+            white-space: pre;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="tree" id="tree"></div>
+
+<script>
+    function generateTree(height) {
+        let tree = '';
+        for (let i = 0; i < height; i++) {
+           
+           
+            tree += '*'.repeat(2 * i + 1);
+            tree += '\n';
+        }
+       
+        
+        return tree;
+    }
+
+    const height = parseInt(prompt("Введите высоту елочки (целое число):"), 10);
+    
+    if (!isNaN(height) && height > 0) {
+        document.getElementById('tree').textContent = generateTree(height);
+    } else {
+        alert("Пожалуйста, введите корректное целое число.");
+    }
+</script>
+
+</body>
+</html>
